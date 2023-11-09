@@ -2,11 +2,11 @@
     ViewData["Title"] = "Contact";
    
 }
-
+@model PersonalSite.Models.ContactViewModel
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
+    <section id="breadcrumbs" class="breadcrumbs pt-4">
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
@@ -21,25 +21,25 @@
     </section><!-- End Breadcrumbs -->
     <!-- ======= Contact Us Section ======= -->
     <section id="contact-us" class="contact-us">
-        <div class="container">
+        <div class="container box-shadow">
 
             <div>
             </div>
 
-            <div class="row mt-5">
+            <div class="row mt-5 ">
 
                 <div class="col-lg-4">
                     <div class="info">
-                        <div class="address">
+                       @*  <div class="address">
                             <i class="bi bi-geo-alt"></i>
                             <h4>Under Construction</h4>
                             <p>This Page is Still Under Construction</p>
-                        </div>
+                        </div> *@
 
                         <div class="email">
                             <i class="bi bi-envelope"></i>
                             <h4>Email:</h4>
-                            <p>info@example.com</p>
+                            <p>Ssc553@hotmail.com</p>
                         </div>
 
                         <div class="phone">
@@ -54,7 +54,36 @@
 
                 <div class="col-lg-8 mt-5 mt-lg-0">
 
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form bg-dark-subtle">
+
+                    <form asp-action="Contact" class="php-email-form bg-dark-subtle">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class=" col-md-12 form-group">
+                            <input asp-for="Name" class="form-control" placeholder="Name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 form-group mt-3 mt-md-0">
+                            <input asp-for="Email" class="form-control" placeholder="Email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input asp-for="Subject" class="form-control" placeholder="Subject" />
+                            <span asp-validation-for="Subject" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea asp-for="Message" class="form-control" placeholder="Message"></textarea>
+                            <span asp-validation-for="Message" class="text-danger"></span>
+                        </div>
+
+                        <div class="my-3">
+                            <div class="loading">Loading</div>
+                            @* <div class="error-message"></div> *@
+                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                        </div>
+                        <div class="text-center mb-5"><button type="submit">Send Message</button></div>
+                    </form>
+
+
+                   @*   <form asp-action="Contact" method="post" role="form" class="php-email-form bg-dark-subtle">
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -79,7 +108,7 @@
                             <div class="sent-message">Your message has been sent. Thank you!</div>
                         </div>
                         <div class="text-center mb-5"><button type="submit">Send Message</button></div>
-                    </form>
+                    </form> *@
 
                 </div>
 
